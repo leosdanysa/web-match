@@ -1,0 +1,83 @@
+<mat-expansion-panel class="panel">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ userData.firstName}} {{ userData.lastName}}
+      </mat-panel-title>
+      <mat-panel-description>
+          {{userData.emailAddress}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="datasource">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+          <!-- personId Column -->
+          <ng-container matColumnDef="personId">
+            <mat-header-cell *matHeaderCellDef> Person Id </mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{user.personId}} </mat-cell>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="firstName">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{user.firstName}} </mat-cell>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="lastName">
+            <mat-header-cell *matHeaderCellDef> lastName </mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{user.lastName}}  </mat-cell>
+          </ng-container>
+
+          <!-- Color Column -->
+          <ng-container matColumnDef="emailAddress">
+            <mat-header-cell *matHeaderCellDef> emailAddress </mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{user.emailAddress}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="dateOfBirth">
+              <mat-header-cell *matHeaderCellDef> dateOfBirth </mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.dateOfBirth}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="institutionId">
+            <mat-header-cell *matHeaderCellDef> institutionId </mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{user.institutionId}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="matchingScore">
+            <mat-header-cell *matHeaderCellDef> matchingScore </mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{user.matchingScore}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="actionsColumn">
+              <mat-header-cell *matHeaderCellDef> Select </mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                  <button mat-icon-button color="primary" *ngIf="row.match == true" (click)="changeStatus(row)">
+                      <mat-icon aria-label="Example icon-button with a heart icon" >done</mat-icon>
+                  </button>
+                  <button mat-icon-button color="warn" *ngIf="row.match == false" (click)="changeStatus(row)">
+                      <mat-icon aria-label="Example icon-button with a heart icon">remove</mat-icon>
+                  </button>
+                <!--<button mat-icon-button color="primary" focusable="false" (click)="row.cancelOrDelete()">
+                      <i class="fa fa-times mat-icon"></i>
+                    </button>-->
+              </mat-cell>
+            </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"
+          [ngClass]="{'highlight': selectedRowIndex == row.personId}"
+          (click)="selectedRow(row)"></mat-row>
+        </mat-table>
+        <mat-paginator #paginator
+                [length]="userData.matches.length"
+                [pageIndex]="0"
+                [pageSize]="5"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+        </mat-paginator>
+      </div>
+  </mat-expansion-panel>

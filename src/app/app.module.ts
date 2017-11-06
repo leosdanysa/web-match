@@ -3,14 +3,24 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import { HomeModule } from './home/home.module';
+import { LayoutHeaderComponent, SharedModule, ApiService } from './shared';
+import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LayoutHeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HomeModule,
+    SharedModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
