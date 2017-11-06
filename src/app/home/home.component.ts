@@ -30,5 +30,11 @@ export class HomeComponent {
 
       const userEntity = userData.matches.find(user => user.personId === entity.entityMatch.personId);
       userEntity.match = !entity.entityMatch.match;
+
+      const notMatches = userData.matches.filter(user => user.personId !== entity.entityMatch.personId);
+
+      for (const item of notMatches) {
+        item.match = false;
+      }
     }
 }
