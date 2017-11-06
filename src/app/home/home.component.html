@@ -1,6 +1,8 @@
 <app-file (onFileLoaded)="onFileLoaded($event)"></app-file>
 
+<mat-accordion class="example-headers-align">
 <app-entity-expansion-panel *ngFor="let data of ((myData) ? myData.resultData.slice(0, 10):[]); let i = index"
-   [userData]="data" (onStatusChanged)="onEntityChange($event)">
+   [userData]="data" [step]="i" (onStatusChanged)="onEntityChange($event)">
 </app-entity-expansion-panel>
+</mat-accordion>
 

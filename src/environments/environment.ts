@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://my-json-server.typicode.com'
+  apiBaseUrl: 'https://my-json-server.typicode.com',
+  apiFileBaseUrl: 'http://172.23.112.159:22017'
 };

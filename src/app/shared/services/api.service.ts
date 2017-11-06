@@ -3,6 +3,7 @@ import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable';
 import { HttpRequest } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class ApiService {
@@ -74,8 +75,14 @@ export class ApiService {
   }
 
   postFile(path: string, body: FormData, params: HttpParams = new HttpParams()): Observable<any> {
+    const h = new HttpHeaders({entity: 'user'});
+    h.append('rootInstitutionId', '1234');
 
-    const req = new HttpRequest('POST', `${environment.apiBaseUrl}${path}`, body, {reportProgress: true, responseType: 'json'});
+    const req = new HttpRequest(
+      'POST',
+      `${environment.apiFileBaseUrl}${path}`,
+      body,
+      {headers: h, responseType: 'json'});
 
     return this.httpClient.request(req);
   }

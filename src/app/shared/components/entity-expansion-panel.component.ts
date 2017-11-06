@@ -21,17 +21,28 @@ export class EntityExpansionPanelComponent implements OnInit {
   @Output() onStatusChanged: EventEmitter<any> = new EventEmitter();
 
   selectedEntity: EntityUser = null;
-
   displayedColumns: Array<string> = [];
   datasource: UserDataSource;
-
   selectedRowIndex: number = -1;
+  @Input() step = 0;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
     this.datasource = new UserDataSource(this.userData.matches as EntityUser[], this.paginator);
     this.displayedColumns = this.datasource.columns;
+  }
+
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
   }
 
   changeStatus(entity: EntityUser) {

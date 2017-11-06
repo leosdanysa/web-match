@@ -59,7 +59,7 @@ export class FileComponent {
     const formData: FormData = new FormData();
     formData.append('file', this.currentFile);
 
-    // this.apiService.postFile('/file', formData).subscribe();
+    this.apiService.postFile('/k12-match-service/uploadfile?queryEntity=leo', formData).subscribe();
 
     this.onFileLoaded.emit({'status': true});
   }
