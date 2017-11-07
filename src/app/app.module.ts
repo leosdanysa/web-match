@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { LayoutHeaderComponent, SharedModule, ApiService } from './shared';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutHeaderComponent
+    LayoutHeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
