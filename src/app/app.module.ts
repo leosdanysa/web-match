@@ -1,10 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
 import { HomeModule } from './home/home.module';
-import { LayoutHeaderComponent, SharedModule, ApiService } from './shared';
+import { LayoutHeaderComponent, SharedModule, ApiService, AuthguardService, LoginService, StorageService } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 
@@ -15,13 +15,16 @@ import { LoginComponent } from './login/login.component';
     LoginComponent
   ],
   imports: [
-    BrowserModule,
+    // BrowserModule,
     HomeModule,
     SharedModule,
     AppRoutingModule
   ],
   providers: [
-    ApiService
+    ApiService,
+    AuthguardService,
+    LoginService,
+    StorageService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import {RouterModule, Routes} from '@angular/router';
-import { SharedModule } from '../shared';
+import { SharedModule, AuthguardService } from '../shared';
 
 const homeRoutes: Routes = [
   {
     path: '',
     children: [
-      {path: '', component: HomeComponent}
+      {path: '', component: HomeComponent, canActivate: [AuthguardService]} // TODO: problem with lazy loading...investigate
     ]
   }
 ];
@@ -17,6 +18,7 @@ const homeRoutes: Routes = [
     HomeComponent
   ],
   imports: [
+    CommonModule,
     SharedModule,
     RouterModule.forChild(homeRoutes)
   ],
