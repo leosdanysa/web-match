@@ -15,12 +15,12 @@ export class LoginService {
 
     // Call server api to authenticate
 
-    // Store authentication in local storage
-    this.storageService.save(this.user + ':' + this.password);
-
     // On login success rediret to home
     return new Observable<boolean>(observer => {
       if (this.user === username && this.password === password) {
+        // Store authentication in local storage
+        this.storageService.save(this.user + ':' + this.password);
+
         return observer.next(true);
       } else {
         return observer.next(false);

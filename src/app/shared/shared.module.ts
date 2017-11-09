@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {
@@ -19,7 +19,8 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatProgressBarModule,
-  MatTabsModule
+  MatTabsModule,
+  MatInputModule
 } from '@angular/material';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,6 +34,7 @@ import { BrowserModule } from '@angular/platform-browser';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
     BrowserModule,
@@ -47,11 +49,13 @@ import { BrowserModule } from '@angular/platform-browser';
     MatTableModule,
     MatPaginatorModule,
     MatProgressBarModule,
-    MatTabsModule
+    MatTabsModule,
+    MatInputModule
   ],
   exports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
     BrowserModule,
@@ -66,6 +70,7 @@ import { BrowserModule } from '@angular/platform-browser';
     MatTableModule,
     MatPaginatorModule,
     MatTabsModule,
+    MatInputModule,
     FileComponent,
     EntityExpansionPanelComponent,
     ProgressBarIndeterminateComponent
