@@ -1,39 +1,37 @@
-<mat-expansion-panel class="panel" [expanded]="step === i" (opened)="setStep(i)" hideToggle="true">
+<!-- <mat-expansion-panel class="panel" [expanded]="step === i" (opened)="setStep(i)" hideToggle="true"> -->
+<mat-expansion-panel class="panel" >
     <mat-expansion-panel-header>
       <mat-panel-title>
-        {{ userData.firstName}} {{ userData.lastName}}
+        {{ data.title}}
       </mat-panel-title>
+      <div class="flex-spacer"></div>
       <mat-panel-description>
-          {{userData.emailAddress}}
+          {{data.id}} - {{data.url}}
           <mat-icon>account_circle</mat-icon>
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <div class="example-container mat-elevation-z8">
+    <!-- <div class="example-container mat-elevation-z8">
         <mat-table #table [dataSource]="datasource">
 
-          <!--- Note that these columns can be defined in any order.
-                The actual rendered columns are set as a property on the row definition" -->
-
-          <!-- personId Column -->
           <ng-container matColumnDef="personId">
             <mat-header-cell *matHeaderCellDef> Person Id </mat-header-cell>
             <mat-cell *matCellDef="let user"> {{user.personId}} </mat-cell>
           </ng-container>
 
-          <!-- Name Column -->
+
           <ng-container matColumnDef="firstName">
             <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
             <mat-cell *matCellDef="let user"> {{user.firstName}} </mat-cell>
           </ng-container>
 
-          <!-- Weight Column -->
+
           <ng-container matColumnDef="lastName">
             <mat-header-cell *matHeaderCellDef> lastName </mat-header-cell>
             <mat-cell *matCellDef="let user"> {{user.lastName}}  </mat-cell>
           </ng-container>
 
-          <!-- Color Column -->
+
           <ng-container matColumnDef="emailAddress">
             <mat-header-cell *matHeaderCellDef> emailAddress </mat-header-cell>
             <mat-cell *matCellDef="let user"> {{user.emailAddress}} </mat-cell>
@@ -63,9 +61,6 @@
                   <button mat-icon-button color="warn" *ngIf="row.match == false" (click)="changeStatus(row)">
                       <mat-icon aria-label="Example icon-button with a heart icon">remove</mat-icon>
                   </button>
-                <!--<button mat-icon-button color="primary" focusable="false" (click)="row.cancelOrDelete()">
-                      <i class="fa fa-times mat-icon"></i>
-                    </button>-->
               </mat-cell>
             </ng-container>
 
@@ -84,5 +79,5 @@
       <mat-action-row>
         <button mat-button color="warn" (click)="prevStep()">Previous</button>
         <button mat-button color="primary" (click)="nextStep()">Next</button>
-      </mat-action-row>
+      </mat-action-row> -->
   </mat-expansion-panel>

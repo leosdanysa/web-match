@@ -20,16 +20,19 @@ import {
   MatPaginatorModule,
   MatProgressBarModule,
   MatTabsModule,
-  MatInputModule
+  MatInputModule,
+  MatStepperModule
 } from '@angular/material';
 
 import { BrowserModule } from '@angular/platform-browser';
+import { LayoutFooterComponent } from './layout/';
 
 @NgModule({
   declarations: [
     FileComponent,
     EntityExpansionPanelComponent,
-    ProgressBarIndeterminateComponent
+    ProgressBarIndeterminateComponent,
+    LayoutFooterComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +53,8 @@ import { BrowserModule } from '@angular/platform-browser';
     MatPaginatorModule,
     MatProgressBarModule,
     MatTabsModule,
-    MatInputModule
+    MatInputModule,
+    MatStepperModule
   ],
   exports: [
     CommonModule,
@@ -71,9 +75,11 @@ import { BrowserModule } from '@angular/platform-browser';
     MatPaginatorModule,
     MatTabsModule,
     MatInputModule,
+    MatStepperModule,
     FileComponent,
     EntityExpansionPanelComponent,
-    ProgressBarIndeterminateComponent
+    ProgressBarIndeterminateComponent,
+    LayoutFooterComponent
   ]
 })
 export class SharedModule {}

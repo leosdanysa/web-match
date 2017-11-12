@@ -6,3 +6,8 @@ body {
   margin: 0;
   /*background-color: #fafafa;*/
 }
+
+app-home {
+  padding-top: 60px;
+}
+

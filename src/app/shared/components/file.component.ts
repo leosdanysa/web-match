@@ -12,19 +12,15 @@ export class FileComponent {
 
   entities = [
     {value: 'org', viewValue: 'Org'},
-    {value: 'academicSession', viewValue: 'Academic Session'},
     {value: 'user', viewValue: 'User'},
-    {value: 'class', viewValue: 'Class'},
-    {value: 'demographic', viewValue: 'Demographic'},
-    {value: 'enrollment', viewValue: 'Enrollment'},
-    {value: 'course', viewValue: 'course'}
+    {value: 'class', viewValue: 'Class'}
   ];
 
   currentFile: File;
   selectedFile = 'Open File';
   selectedEntity: string ;
   enableUpload = false;
-  loading: boolean;
+  // loading: boolean;
 
   constructor(private apiService: ApiService) {}
 
@@ -53,14 +49,18 @@ export class FileComponent {
   }
 
   upload(): void {
-    this.loading = true;
+    // this.loading = true;
+    this.onFileLoaded.emit({'status': 'loading'});
     console.log('Uploading file.');
 
     const formData: FormData = new FormData();
     formData.append('file', this.currentFile);
 
-    this.apiService.postFile('/k12-match-service/uploadfile?queryEntity=leo', formData).subscribe();
+    // this.apiService.postFile('/k12-match-service/uploadfile?queryEntity=leo', formData).subscribe();
 
-    this.onFileLoaded.emit({'status': true});
+    // Simulate latency
+    setTimeout(() => {
+      this.onFileLoaded.emit({'status': 'loaded'});
+    }, 5000);
   }
 }

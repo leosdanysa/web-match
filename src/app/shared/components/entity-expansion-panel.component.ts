@@ -10,6 +10,8 @@ import { MatPaginator } from '@angular/material';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { UserData, EntityUser } from '../model';
 import { UserDataSource } from '../datasources';
+import { HeaderData } from '../model';
+import { PhotoEntity } from '../model';
 
 @Component({
   selector: 'app-entity-expansion-panel',
@@ -17,20 +19,21 @@ import { UserDataSource } from '../datasources';
   styleUrls: ['./entity-expansion-panel-component.css']
 })
 export class EntityExpansionPanelComponent implements OnInit {
-  @Input() userData: UserData;
+  @Input() data: PhotoEntity;
   @Output() onStatusChanged: EventEmitter<any> = new EventEmitter();
 
   selectedEntity: EntityUser = null;
   displayedColumns: Array<string> = [];
-  datasource: UserDataSource;
+  // datasource: UserDataSource;
   selectedRowIndex: number = -1;
   @Input() step = 0;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  // @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
-    this.datasource = new UserDataSource(this.userData.matches as EntityUser[], this.paginator);
-    this.displayedColumns = this.datasource.columns;
+    // this.datasource = new UserDataSource(this.data.matches as EntityUser[], this.paginator);
+    // this.datasource = new UserDataSource([] as EntityUser[], this.paginator);
+    // this.displayedColumns = this.datasource.columns;
   }
 
   setStep(index: number) {
@@ -48,11 +51,11 @@ export class EntityExpansionPanelComponent implements OnInit {
   changeStatus(entity: EntityUser) {
     // entity.match = !entity.match;
     const eventData: any = {
-      'parentId': this.userData.sourceId,
+      // 'parentId': this.data.sourceId,
       'entityMatch': entity
     };
 
-    this.datasource.dataChanged(this.userData.matches.slice());
+    // this.datasource.dataChanged(this.userData.matches.slice());
 
     this.onStatusChanged.emit(eventData);
   }

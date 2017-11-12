@@ -6,16 +6,14 @@ import {ReplaySubject} from 'rxjs/ReplaySubject';
 export class StorageService {
 
   private TOKEN_KEY = 'token';
-  // private loggedIn = new BehaviorSubject<boolean>(false);
-
   private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
   public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
-  constructor() { }
-
-  /*get isLoggedIn() {
-    return this.loggedIn.asObservable();
-  }*/
+  constructor() {
+    if (localStorage.getItem(this.TOKEN_KEY) !== null) {
+      this.isAuthenticatedSubject.next(true);
+    }
+   }
 
   save(token: string): void {
     localStorage.setItem(this.TOKEN_KEY, token);

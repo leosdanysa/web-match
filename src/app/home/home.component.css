@@ -14,8 +14,8 @@
   max-height: 500px;
 }
 
-.my-toolbar {
-  /* position: fixed; */
+/* .my-toolbar {
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
@@ -29,7 +29,7 @@
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
 .example-headers-align .mat-expansion-panel-header-title,
 .example-headers-align .mat-expansion-panel-header-description {
@@ -39,6 +39,14 @@
 .example-headers-align .mat-expansion-panel-header-description {
   justify-content: space-between;
   align-items: center;
+}
+
+app-layout-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 }
 
 

@@ -6,5 +6,6 @@
 export const environment = {
   production: false,
   apiBaseUrl: 'https://my-json-server.typicode.com',
-  apiFileBaseUrl: 'http://172.23.112.159:22017'
+  apiFileBaseUrl: 'http://172.23.112.159:22017',
+  apiPlaceHolder: 'https://jsonplaceholder.typicode.com'
 };

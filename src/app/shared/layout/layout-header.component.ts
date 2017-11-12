@@ -10,13 +10,12 @@ import { Observable } from 'rxjs/Observable';
 })
 export class LayoutHeaderComponent implements OnInit {
   title = 'Leo';
+  username = 'lesanchez';
   isLogged$: Observable<boolean>;
 
   constructor(private router: Router, private storageService: StorageService) {}
 
   ngOnInit(): void {
-    // this.isLogged$ = this.storageService.isLoggedIn;
-
     this.isLogged$ = this.storageService.isAuthenticated;
   }
 

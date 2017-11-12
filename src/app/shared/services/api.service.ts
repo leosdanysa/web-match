@@ -14,7 +14,7 @@ export class ApiService {
   }
 
   get(path: string, params: HttpParams = new HttpParams()): Observable<any> {
-    return this.httpClient.get(`${environment.apiBaseUrl}${path}`, { params: params })
+    return this.httpClient.get(`${environment.apiPlaceHolder}${path}`, { params: params })
       .map(
         (res) => res,
         (err: HttpErrorResponse) => {

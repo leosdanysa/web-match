@@ -1,14 +1,56 @@
-<div >
+<nav class="docs-navbar-header" >
+    <a mat-button class="docs-button" routerLink="/" aria-label="My Company">
+      <img class="docs-angular-logo"
+           src="../../../assets/img/homepage/angular-white-transparent.svg"
+           alt="company">
+      <span>{{title}}'s Company</span>
+    </a>
+    <div class="flex-spacer"></div>
+    <a mat-button *ngIf="isLogged$ | async" mat-button [matMenuTriggerFor]='appMenu' class="docs-button docs-navbar-hide-small"
+        aria-label="GitHub Repository">
+        <i class="material-icons mat-light">account_circle</i>
+      {{username}}
+    </a>
+  <!--<div >
+        <mat-toolbar color="primary" style="margin: 0;">
+          <span>{{title}}'s Company</span>
+          <span class="example-spacer"></span>
+          <button *ngIf="isLogged$ | async" mat-button [matMenuTriggerFor]='appMenu'><mat-icon>menu</mat-icon>Menu</button>
+        </mat-toolbar>
+      </div>-->
+    <!-- <a mat-button class="docs-navbar-hide-small docs-button"
+       *ngFor="let key of sectionKeys"
+       [routerLink]="key">{{sections[key]}}</a>
+    <a mat-button class="docs-navbar-hide-small docs-button" routerLink="guides">Guides</a>
+    <div class="flex-spacer"></div>
+
+
+    <a mat-icon-button class="docs-button docs-navbar-show-small"
+       href="https://github.com/angular/material2" aria-label="GitHub Repository">
+      <img class="docs-angular-logo"
+           src="../../../assets/img/homepage/github-circle-white-transparent.svg"
+           alt="angular">
+    </a>
+  </nav>-->
+  <!--<nav class="docs-navbar docs-navbar-show-small">
+     <a mat-button class="docs-navbar-link"
+      *ngFor="let key of sectionKeys"
+      [routerLink]="key">{{sections[key]}}</a>
+    <a mat-button class="docs-navbar-link" routerLink="guides">Guides</a>
+  </nav>-->
+
+
+<!-- <div >
   <mat-toolbar color="primary" class="my-toolbar" style="margin: 0;">
     <span>{{title}}'s Company</span>
     <span class="example-spacer"></span>
     <button *ngIf="isLogged$ | async" mat-button [matMenuTriggerFor]='appMenu'><mat-icon>menu</mat-icon>Menu</button>
   </mat-toolbar>
 </div>
-
+ -->
 <mat-menu #appMenu="matMenu">
     <button mat-menu-item (click)="logout()">
-      <mat-icon>close</mat-icon>
+      <mat-icon>power_settings_new</mat-icon>
       <span>Sign out</span>
     </button>
 </mat-menu>

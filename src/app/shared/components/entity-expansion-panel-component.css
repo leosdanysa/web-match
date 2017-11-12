@@ -6,6 +6,10 @@
   margin-top: 5px;
 }
 
+.flex-spacer {
+  flex-grow: 1;
+}
+
 /* Structure */
 .example-container {
   display: flex;

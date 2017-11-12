@@ -1,8 +1,44 @@
-<app-file (onFileLoaded)="onFileLoaded($event)"></app-file>
 
-<mat-accordion class="example-headers-align">
-<app-entity-expansion-panel *ngFor="let data of ((myData) ? myData.resultData.slice(0, 10):[]); let i = index"
+
+<!-- <mat-accordion class="example-headers-align"> -->
+<!-- <app-entity-expansion-panel *ngFor="let data of ((myData) ? myData.resultData.slice(0, 10):[]); let i = index"
    [userData]="data" [step]="i" (onStatusChanged)="onEntityChange($event)">
-</app-entity-expansion-panel>
-</mat-accordion>
+</app-entity-expansion-panel> -->
+<!-- </mat-accordion> -->
+
+<div style="padding-top: 60px; padding-bottom: 20px;">
+
+    <mat-horizontal-stepper #myStepper [linear]="false">
+        <mat-step>
+            <ng-template matStepLabel>Select the entity and the corresponding file</ng-template>
+            <app-file (onFileLoaded)="onFileLoaded($event)"></app-file>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Load and file processing</ng-template>
+            <app-progress-bar-indeterminate *ngIf="loading" style="margin-top: 5px;"></app-progress-bar-indeterminate>
+          </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>List matches</ng-template>
+            <app-entity-expansion-panel *ngFor="let d of ((pagedItems) ? pagedItems :[]); let i = index"
+            [data]="d" [step]="i" (onStatusChanged)="onEntityChange($event)">
+            </app-entity-expansion-panel>
+            <mat-paginator #paginator
+              [length]="data.length"
+              [pageIndex]="0"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 15, 25]"
+              (page)="onPage($event)">
+            </mat-paginator>
+            <div>
+                <button mat-button color="primary" (click)="onSubmit()">Submit</button>
+              </div>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          You are now done.
+        </mat-step>
+      </mat-horizontal-stepper>
+
+</div>
+<app-layout-footer></app-layout-footer>
 
